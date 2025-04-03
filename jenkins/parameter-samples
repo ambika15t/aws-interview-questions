@@ -29,3 +29,19 @@ pipeline{
     }
         
 }
+###############################
+pipeline{
+    agent any 
+    environment{
+       fname = "kamal" 
+    }
+    stages {
+        stage ('one') {
+            steps {
+                echo "hello $(fname)"
+            }
+        }
+    }
+        
+    
+}
