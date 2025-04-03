@@ -6,7 +6,24 @@ pipeline{
     stages{
         stage:('one') {
             steps {
-                echo '${params.fname}'
+                echo "${params.fname}"
+            }
+        }
+    }
+        
+}
+#######################
+pipeline{
+    agent any
+    parameters{
+        string(name: 'fname' , default: 'kamal', description: '')
+        choice(name: 'city', choice['one','two','three'] description: '')
+    }
+    stages{
+        stage:('one') {
+            steps {
+                echo "${params.fname}"
+                echo "${params.city}"
             }
         }
     }
